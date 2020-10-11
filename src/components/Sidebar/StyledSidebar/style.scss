@@ -1,0 +1,46 @@
+.list-container {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+
+  .list-item {
+    color: #fff;
+    font-size: 22px;
+    line-height: 1.8;
+    padding: 0 1.25rem;
+  }
+
+  .list-item:hover {
+    font-weight: 600;
+    cursor: pointer;
+    background-color: white;
+    color: #494ca2;
+  }
+
+  .selected-list-item {
+    background-color: white;
+    color: #494ca2;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.8;
+    padding: 0 1.25rem;
+  }
+}
+
+.sidebar {
+  background: #494ca2 !important;
+  padding: 0 !important;
+
+  h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 1rem 0.5rem;
+  }
+
+  div {
+    padding: 0;
+  }
+}
