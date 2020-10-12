@@ -16,7 +16,7 @@ export const StyledSidebar = (): JSX.Element => {
             }
             onClick={() => setSelectedOption(0)}
           >
-            Home
+            <i className="pi pi-home icon-class"></i>Home
           </li>
           <li
             className={
@@ -24,7 +24,7 @@ export const StyledSidebar = (): JSX.Element => {
             }
             onClick={() => setSelectedOption(1)}
           >
-            Create ticket
+            <i className="pi pi-ticket icon-class"></i>Create ticket
           </li>
           <li
             className={
@@ -32,7 +32,7 @@ export const StyledSidebar = (): JSX.Element => {
             }
             onClick={() => setSelectedOption(2)}
           >
-            Sign out
+            <i className="pi pi-sign-out icon-class"></i>Sign out
           </li>
         </ul>
       </div>

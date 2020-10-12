@@ -9,12 +9,22 @@
     line-height: 1.8;
     padding: 0 1.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    .icon-class {
+      font-size: 20px;
+      margin-right: 10px;
+      font-weight: 400;
+    }
   }
 
   .list-item:hover {
     font-weight: 500;
     cursor: pointer;
     color: #fff;
+
+    .icon-class {
+      font-weight: 600;
+    }
   }
 
   .selected-list-item {
@@ -24,6 +34,12 @@
     line-height: 1.8;
     padding: 0 1.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    .icon-class {
+      font-size: 20px;
+      margin-right: 10px;
+      font-weight: 700;
+    }
   }
 }
 
