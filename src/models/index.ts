@@ -1,3 +1,1 @@
-export type Example = {
-    name: string;
-}
+export * from './route';
