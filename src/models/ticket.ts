@@ -5,3 +5,8 @@ export type Ticket = {
     createdAt: Date;
     status: string;
 }
+
+export type DropDownItems = {
+    status: string;
+    value: string;
+}

@@ -18,6 +18,10 @@ form {
         border: 2px solid rgba(0,0,255,0.4);
     }
 
+    input:disabled, textarea:disabled {
+        background-color: white;
+    }
+
     textarea {
         border: 2px solid rgba(255,255,255,0.4);
         padding: 0.5em;
@@ -35,4 +39,22 @@ form {
     width: 70%;
     font-weight: 800;
     margin-bottom: 1em;
+}
+
+.errorParagraph {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+button {
+    width: 200px;
+    background: none;
+    padding: 0.25em;
+    border: 2px solid rgba(0,0,255,0.4);
+    align-self: center;
+}
+
+button:hover {
+    border: none;
+    background-color: rgba(0,0,255,0.4);
+    color: white;
 }

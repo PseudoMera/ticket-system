@@ -7,7 +7,7 @@ const Detail: React.FC = () => {
     return (
         <div>
             <div className="detailContainer">
-                <TicketDescription />
+                <TicketDescription viewOnly={false} />
                 <TicketComment />
             </div>
         </div>
