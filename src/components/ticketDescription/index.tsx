@@ -26,8 +26,7 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({ viewOnly }: Ticke
         return initialValue
     })
     return (
-        <div>
-            <h1>Ticket Description</h1>
+        <section>
             <Formik
                 initialValues={{
                     title: '',
@@ -51,7 +50,7 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({ viewOnly }: Ticke
                     </Form>
                 )}
             </Formik>
-        </div>
+        </section>
     )
 }
 

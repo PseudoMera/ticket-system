@@ -1,5 +1,13 @@
 .detailContainer {
-    margin: 10% 20%;
+    margin: 5% auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    background-color: #e3ebff;
+    border-radius: 20px;
+    padding: 4em 2em;
+    min-width: 800px;
+    min-height: 600px;
+    width: 80vw;
+    height: 60vh;
 }
