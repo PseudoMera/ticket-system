@@ -88,6 +88,9 @@ const AllTicketsPage: React.FC = () => {
             value={tickets}
             paginator
             rows={8}
+            removableSort
+            rowHover
+            onRowClick={(e) => console.log(e.data)}
           >
             {data?.isAdmin ? (
               <Column
