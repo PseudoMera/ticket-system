@@ -1,14 +1,38 @@
-.dropdownSelector {
+form {
+    font-size: 1.5rem;
+    width: 30vw;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    margin-top: 1em;
-    margin-bottom: 2em;
 
-    div {
-        margin-left: 2em;
+    input {
+        border: 2px solid rgba(255,255,255,0.4);
+        padding: 0.5em;
+        cursor: pointer;
+        font-weight: 200;
+        margin-bottom: 1em;
+    }
+
+    input:focus, input:hover, textarea:focus, textarea:hover {
+        border: 2px solid rgba(0,0,255,0.4);
+    }
+
+    textarea {
+        border: 2px solid rgba(255,255,255,0.4);
+        padding: 0.5em;
+        resize: none;
+        font-size: 1em;
+        color: rgba(0,0,0,0.5);
+        cursor: pointer;
+        margin-bottom: 1em;
     }
 }
 
-.descriptionInput {
-    width: 30vw;
+.selectSection {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    font-weight: 800;
+    margin-bottom: 1em;
 }
