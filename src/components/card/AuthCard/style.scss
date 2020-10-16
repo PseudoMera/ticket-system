@@ -19,7 +19,6 @@
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
       width: 65%;
 
@@ -28,18 +27,12 @@
         align-self: baseline;
       }
 
-      label {
-        align-self: baseline;
-      }
-
       .p-button {
-        align-self: baseline;
         width: 150px;
       }
 
       a {
         margin-top: 1rem;
-        align-self: baseline;
       }
 
       .mg-bt {
