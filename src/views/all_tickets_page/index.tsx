@@ -6,7 +6,6 @@ import { Calendar } from 'primereact/calendar';
 import Sidebar from '../../components/Sidebar/StyledSidebar';
 
 const AllTicketsPage: React.FC = () => {
-  const [sidebarVisible, setSidebarVisible] = useState<boolean>(true);
   return (
     <div className="page-container">
       <div>

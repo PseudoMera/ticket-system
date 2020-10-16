@@ -12,8 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/tickets" component={AllTicketsPage} />
+        <Route exact path="/" component={AllTicketsPage} />
       </Switch>
     </BrowserRouter>
   );

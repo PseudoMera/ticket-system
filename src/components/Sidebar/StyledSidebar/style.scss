@@ -6,9 +6,9 @@
   .list-item {
     color: #fff;
     font-size: 20px;
-    line-height: 1.8;
+    line-height: 3.8;
     padding: 0 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 
     .icon-class {
       font-size: 20px;
@@ -31,9 +31,10 @@
     color: #fff;
     font-weight: 700;
     font-size: 20px;
-    line-height: 1.8;
+    line-height: 3.8;
     padding: 0 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 
     .icon-class {
       font-size: 20px;
@@ -44,7 +45,7 @@
 }
 
 .sidebar {
-  background: #494ca2 !important;
+  background: #0f83dd !important;
   padding: 0 !important;
 
   h1 {
