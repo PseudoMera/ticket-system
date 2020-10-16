@@ -29,11 +29,20 @@ function App() {
       });
 
       const parsedUser: User = await response.json();
-      setUser({
-        data: parsedUser,
-        update: updateUser,
-        ready: true,
-      });
+
+      if (parsedUser.id) {
+        setUser({
+          data: parsedUser,
+          update: updateUser,
+          ready: true,
+        });
+      } else {
+        setUser({
+          data: undefined,
+          update: updateUser,
+          ready: true,
+        });
+      }
     } else {
       setUser({
         data: undefined,
