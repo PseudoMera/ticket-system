@@ -6,7 +6,6 @@ export const example = () => console.log('Hello World');
 export function getDateFromString(
   data: string | Date = new Date(),
 ): RebateDate {
-  console.log('ME HERE');
   const date: string = data.toString();
   const myDate = new Date(data);
   const year = format(myDate, 'YYY');

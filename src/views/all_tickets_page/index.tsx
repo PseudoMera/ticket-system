@@ -40,10 +40,6 @@ const AllTicketsPage: React.FC = () => {
     getTickets();
   }, []);
 
-  useEffect(() => {
-    console.log(tickets);
-  }, [tickets]);
-
   const actionBodyTemplate = (rowData: { id: number }) => {
     return (
       <Button
