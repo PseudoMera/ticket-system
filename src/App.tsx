@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import Home from './views/home';
+import AllTicketsPage from './views/all_tickets_page';
 import Auth from './views/auth';
 
 import ROUTES from './constants/routes';
@@ -60,7 +60,7 @@ function App() {
       <UserContext.Provider value={user}>
         <ProtectedRoute
           path={ROUTES.home}
-          Component={Home}
+          Component={AllTicketsPage}
           auth={isLogin}
           ready={user.ready}
         />

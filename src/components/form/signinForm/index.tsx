@@ -41,7 +41,7 @@ const SigninForm: React.FC<SigninFormProps> = ({
     localStorage.setItem('token', JSON.stringify(parsedSignin));
     user.update();
     //TODO: Push user to the homepage
-
+    history.push(ROUTES.home);
   };
 
   return (
