@@ -30,7 +30,11 @@ export const StyledSidebar = (): JSX.Element => {
             className={
               selectedOption === 2 ? 'selected-list-item' : 'list-item'
             }
-            onClick={() => setSelectedOption(2)}
+            onClick={() => {
+              setSelectedOption(2);
+              localStorage.removeItem('token');
+              window.location.reload();
+            }}
           >
             <i className="pi pi-sign-out icon-class"></i>Sign out
           </li>
