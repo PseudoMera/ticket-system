@@ -12,7 +12,7 @@
         width: 100%;
         
         input {
-            width: 70%;
+            width: auto;
             border: none;
             border-radius: 5px;
             padding: 0.5em;
@@ -33,6 +33,7 @@ ul {
 
 .comment {
     margin-bottom: 1em;
+    width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

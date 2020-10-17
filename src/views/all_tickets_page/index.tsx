@@ -48,14 +48,18 @@ const AllTicketsPage: React.FC = () => {
     getTickets();
   }, []);
 
-  const actionBodyTemplate = (rowData: { id: number }) => {
+  const actionBodyTemplate = (rowData: Ticket) => {
     return (
       <Button
         type="button"
         icon="pi pi-cog"
         className="p-button-secondary"
         onClick={() => {
-          console.log(rowData.id)
+          // console.log('Click en la manija')
+          // console.log(rowData.id)
+          // console.log('Data en la manija')
+          // console.log(rowData)
+          setSelectedTicket(rowData)
           setShowModal(true)
         }}
       ></Button>
@@ -101,10 +105,10 @@ const AllTicketsPage: React.FC = () => {
             rows={8}
             removableSort
             rowHover
-            onRowClick={(e) => {
-              console.log(e.data)
-              setSelectedTicket(e.data)
-            }}
+          // onRowClick={(e) => {
+          //   console.log('Click en la fila')
+          //   console.log(e.data)
+          // }}
           >
             {data?.isAdmin ? (
               <Column
@@ -170,7 +174,7 @@ const AllTicketsPage: React.FC = () => {
             setShowModal(false)
             setSelectedTicket(null)
           }} />
-          <TicketComment id={selectedTicket?.id} comments={selectedTicket?.comments} />
+          <TicketComment id={selectedTicket?.id} />
         </div>
       </ModalPortal>
       }

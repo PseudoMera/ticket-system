@@ -76,6 +76,7 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({ mode, ticket, onC
                     status: ticket?.status ? ticket.status : TICKET_STATUS.OPEN
                 }}
                 validationSchema={TicketSchema}
+                enableReinitialize={true}
                 onSubmit={(values) => {
                     handleSubmit(values)
                     onClose()
@@ -101,4 +102,4 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({ mode, ticket, onC
     )
 }
 
-export default memo(TicketDescription);
+export default TicketDescription;
