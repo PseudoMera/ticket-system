@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
-
-import Home from './views/home';
-import Detail from './views/detail'
 import AllTicketsPage from './views/all_tickets_page';
 import Auth from './views/auth';
 
@@ -75,15 +72,7 @@ function App() {
           auth={isLogin}
           ready={user.ready}
         />
-        {/* <ProtectedRoute
-          path={ROUTES.detail}
-          component={Detail}
-          auth={isLogin}
-          ready={user.ready}
-        /> */}
         <Route exact path={ROUTES.auth} component={Auth} />
-        <Route exact path={ROUTES.detail} component={Detail} />
-        <Route exact path={ROUTES.detailWithId} component={Detail} />
       </UserContext.Provider>
     </BrowserRouter>
   );

@@ -12,7 +12,6 @@ import { API } from '../../constants/api';
 import { Ticket } from '../../models/ticket';
 import { Token } from '../../models/token';
 import { getDateFromString } from '../../utils/index';
-
 const AllTicketsPage: React.FC = () => {
   const { data } = useContext(UserContext);
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
@@ -144,8 +143,8 @@ const AllTicketsPage: React.FC = () => {
             />
           </DataTable>
         ) : (
-          <h1>Loading...</h1>
-        )}
+            <h1>Loading...</h1>
+          )}
       </div>
     </div>
   );

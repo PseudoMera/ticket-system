@@ -1,0 +1,38 @@
+.modalLayout {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+}
+
+.modalContent {
+    color: white;
+    background:#69b2ea;
+    padding: 10px 20px;
+    margin: 20vh auto;
+    position: relative;
+    border-radius: 50px;
+    -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.35);
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.35);
+}
+
+.modalChildren {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalButton {
+    background-color: #0f83dd;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5em;
+}

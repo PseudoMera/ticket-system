@@ -3,9 +3,7 @@ import { Route } from '../models';
 export const ROUTES = {
     home: '/',
     auth: '/auth',
-    fakeAuth: '/authfake',
-    detail: '/detail',
-    detailWithId: '/detail/:id'
+    fakeAuth: '/authfake'
 };
 
 export default ROUTES;

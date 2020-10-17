@@ -20,6 +20,14 @@ const TicketComment: React.FC = () => {
     return (
         <section className="commentSection">
             <ul>
+                <li className="comment">
+                    <p>alksndalknd</p>
+                    <time>24 sept 2018</time>
+                </li>
+                <li className="comment">
+                    <p>alksndalknd</p>
+                    <time>24 sept 2018</time>
+                </li>
             </ul>
             <input type="text" placeholder="Deja un comentario" />
         </section>
