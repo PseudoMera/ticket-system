@@ -6,15 +6,24 @@ import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 
 import Sidebar from '../../components/Sidebar/StyledSidebar';
+import TicketDescription from "../../components/ticketDescription"
+import TicketComment from "../../components/ticketComment"
 import UserContext from '../../context/userContext';
 
 import { API } from '../../constants/api';
 import { Ticket } from '../../models/ticket';
 import { Token } from '../../models/token';
 import { getDateFromString } from '../../utils/index';
+
+
+import { MODAL_MODE } from "../../constants"
+import ModalPortal from "../../components/Modal"
+
 const AllTicketsPage: React.FC = () => {
   const { data } = useContext(UserContext);
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null)
 
   const getTickets = async () => {
     const token = localStorage.getItem('token');
@@ -45,7 +54,10 @@ const AllTicketsPage: React.FC = () => {
         type="button"
         icon="pi pi-cog"
         className="p-button-secondary"
-        onClick={() => console.log(rowData.id)}
+        onClick={() => {
+          console.log(rowData.id)
+          setShowModal(true)
+        }}
       ></Button>
     );
   };
@@ -89,7 +101,10 @@ const AllTicketsPage: React.FC = () => {
             rows={8}
             removableSort
             rowHover
-            onRowClick={(e) => console.log(e.data)}
+            onRowClick={(e) => {
+              console.log(e.data)
+              setSelectedTicket(e.data)
+            }}
           >
             {data?.isAdmin ? (
               <Column
@@ -146,6 +161,13 @@ const AllTicketsPage: React.FC = () => {
             <h1>Loading...</h1>
           )}
       </div>
+      {showModal && <ModalPortal onClose={() => setShowModal(false)}>
+        <div style={{ display: "flex" }}>
+          <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} />
+          <TicketComment />
+        </div>
+      </ModalPortal>
+      }
     </div>
   );
 };

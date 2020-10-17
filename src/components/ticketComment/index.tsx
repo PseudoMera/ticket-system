@@ -1,33 +1,37 @@
 import React, { memo } from "react"
+import { Comment } from '../../models/comment';
 import "./style.scss"
 
 type CommentProps = {
-    body: string;
-    createdAt: Date;
+    comment?: Comment;
 }
 
-const Comment: React.FC<CommentProps> = ({ body, createdAt }: CommentProps) => {
-
+const CommentItem: React.FC<CommentProps> = ({ comment }: CommentProps) => {
     return (
         <li className="comment">
-            <p>{body}</p>
-            <time>{createdAt}</time>
+            <p>{comment?.body}</p>
+            <time>{comment?.createdAt}</time>
         </li>
     )
 }
 
-const TicketComment: React.FC = () => {
+type TicketCommentProps = {
+    comments?: Comment[];
+}
+
+const TicketComment: React.FC<TicketCommentProps> = ({ comments }: TicketCommentProps) => {
     return (
         <section className="commentSection">
             <ul>
-                <li className="comment">
-                    <p>alksndalknd</p>
-                    <time>24 sept 2018</time>
-                </li>
-                <li className="comment">
-                    <p>alksndalknd</p>
-                    <time>24 sept 2018</time>
-                </li>
+                {comments ? comments?.map(comment => (
+                    <li className="comment" key={comment.id}>
+                        <div className="commentHeader">
+                            <h4>Juan Rodriguez</h4>
+                            <time>24 sept 2018</time>
+                        </div>
+                        <p>alksndalknd</p>
+                    </li>
+                )) : <h3>No se han hecho comentarios</h3>}
             </ul>
             <input type="text" placeholder="Deja un comentario" />
         </section>

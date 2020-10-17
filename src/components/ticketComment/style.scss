@@ -25,15 +25,22 @@ ul {
 .comment {
     margin-bottom: 1em;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    
-    p {
-        width: 78%;
-        color: black;
+    .commentHeader {
+        display: flex;
+        h4 {    
+            font-size: 1.3rem; 
+            width: 78%;
+            color: rgba(0,0,0,0.8);
+        }
+        time {
+            width: 20%;
+            color: rgba(0,0,0,0.5);
+        }
     }
-    
-    time {
-        width: 20%;
-        color: rgba(0,0,0,0.5);
+    p {
+        font-size: 1rem;
+        color: #d6d6d6;
     }
 }

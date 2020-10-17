@@ -1,7 +1,3 @@
-export type DropDownItems = {
-  status: string;
-  value: string;
-}
 import { Comment } from './comment';
 
 export type Ticket = {
@@ -13,3 +9,8 @@ export type Ticket = {
   userId: number;
   comments: Comment[];
 };
+
+export type DropDownItems = {
+  status: string;
+  value: string;
+}
