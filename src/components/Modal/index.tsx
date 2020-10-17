@@ -5,12 +5,13 @@ import './style.scss'
 type ModalProps = {
     children: JSX.Element | JSX.Element[];
     onClose: () => void;
+    width: string;
 }
 
-function Modal({ children, onClose }: ModalProps) {
+function Modal({ children, onClose, width }: ModalProps) {
     return (
         <div className="modalLayout">
-            <div className="modalContent">
+            <div className="modalContent" style={{ width: width }}>
                 <button className="modalButton" onClick={onClose}>X</button>
                 <div className="modalChildren">
                     {children}
@@ -20,7 +21,7 @@ function Modal({ children, onClose }: ModalProps) {
     )
 }
 
-export default function ModalPortal({ children, onClose }: ModalProps) {
+export default function ModalPortal({ children, onClose, width }: ModalProps) {
     const ref = useRef<Element | null>(null)
     const [mounted, setMounted] = useState(false)
 
@@ -30,7 +31,7 @@ export default function ModalPortal({ children, onClose }: ModalProps) {
     })
 
     return mounted ? createPortal(
-        <Modal onClose={onClose}>
+        <Modal onClose={onClose} width={width}>
             {children}
         </Modal>, ref.current!) : null
 }

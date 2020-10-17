@@ -116,7 +116,7 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({ mode, ticket, onC
                                 <Dropdown optionLabel="status" value={values.status} options={dropDownItems} onChange={e => setFieldValue("status", e.value)} placeholder="Estado del ticket" style={{ width: "180px" }} />
                             </section>
                         }
-                        <button type="submit">{mode === MODAL_MODE.CREATE ? 'Crear ticket' : 'Actualizar estado'} </button>
+                        <button type="submit" style={{ fontSize: "1.2rem" }}>{mode === MODAL_MODE.CREATE ? 'Crear ticket' : 'Actualizar estado'} </button>
                     </Form>
                 )}
             </Formik>

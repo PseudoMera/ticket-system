@@ -11,11 +11,20 @@ type CommentProps = {
 }
 
 const CommentItem: React.FC<CommentProps> = ({ comment }: CommentProps) => {
+
+    const formatDate = (date: string): string => {
+        const d = Date.parse(date)
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+        return `${da} de ${mo} ${ye}`;
+    }
+
     return (
         <li className="comment">
             <div className="commentHeader">
                 <h4>{`${comment.user.firstName} ${comment.user.lastName}`}</h4>
-                <time>{comment.createdAt}</time>
+                <time>{formatDate(comment.createdAt)}</time>
             </div>
             <p>{comment.body}</p>
         </li>
@@ -36,7 +45,6 @@ const TicketComment: React.FC<TicketCommentProps> = ({ id }: TicketCommentProps)
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
     }
-
     const getTickets = async () => {
         const token = localStorage.getItem('token');
 
@@ -63,8 +71,6 @@ const TicketComment: React.FC<TicketCommentProps> = ({ id }: TicketCommentProps)
     useEffect(() => {
         if (tickets) {
             let ticket = tickets.filter(ticket => ticket.id === id)[0]
-            console.log('Id que llego al ticketcomment component')
-            console.log(id)
             if (ticket) {
                 setComments(ticket.comments)
             }
@@ -108,9 +114,7 @@ const TicketComment: React.FC<TicketCommentProps> = ({ id }: TicketCommentProps)
             <div>
                 <input type="text" placeholder="Deja un comentario" onChange={(e) => handleChange(e)} value={inputValue} />
                 <button type="submit" onClick={() => {
-                    console.log('Iniciamos')
                     handleSubmit(inputValue)
-                    console.log('Acabamos')
                 }}>Comentar</button>
             </div>
         </section>

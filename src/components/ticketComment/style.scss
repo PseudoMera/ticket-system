@@ -1,11 +1,12 @@
 .commentSection {
-    width: 25vw;
+    width: auto;
     margin-bottom: 1em;
     margin-left: 2em;
+    height: 100%;
     ul {
         flex-grow: 2;
         height: 300px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     div {
@@ -21,6 +22,7 @@
         }
         button {
             width: 100px;
+            background-color: #d6d6d6;
         }
     }
 }
@@ -32,20 +34,20 @@ ul {
 }
 
 .comment {
-    margin-bottom: 1em;
-    width: 250px;
+    margin-bottom: 1em 0.5em;
+    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     .commentHeader {
         display: flex;
+        justify-content: space-between;
         h4 {    
-            font-size: 1.3rem; 
-            width: 78%;
+            font-size: 1.1rem;
             color: rgba(0,0,0,0.8);
         }
         time {
-            width: 20%;
+            justify-self: flex-end;
             color: rgba(0,0,0,0.5);
         }
     }

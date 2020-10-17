@@ -2,7 +2,9 @@ section {
     width: 30vw;
 }
 form {
-    color: white;
+    padding: 0.5em;
+    border-radius: 10px;
+    color: #333;
     font-size: 1.5rem;
     height: auto;
     display: flex;
@@ -12,17 +14,19 @@ form {
     input {
         border: 2px solid rgba(255,255,255,0.4);
         padding: 0.5em;
+        color: #333;
         cursor: pointer;
         font-weight: 200;
         margin-bottom: 1em;
+        background-color: #fff;
     }
 
     input:focus, input:hover, textarea:focus, textarea:hover {
-        border: 2px solid rgba(0,0,255,0.4);
+        border: 2px solid #666;
     }
 
     input:disabled, textarea:disabled {
-        background-color: white;
+        background-color: #fff;
     }
 
     textarea {
@@ -30,8 +34,9 @@ form {
         padding: 0.5em;
         resize: none;
         font-size: 1em;
-        color: rgba(0,0,0,0.5);
+        color: #333;
         cursor: pointer;
+        background-color: #fff;
         margin-bottom: 1em;
     }
 }
@@ -39,7 +44,7 @@ form {
 .selectSection {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 70%;
     font-weight: 800;
     margin-bottom: 1em;
 }
@@ -50,7 +55,7 @@ form {
 
 button {
     width: 200px;
-    background: none;
+    background-color: #d6d6d6;
     color: white;
     padding: 0.25em;
     border: 2px solid white;
@@ -59,6 +64,6 @@ button {
 
 button:hover {
     border: 2px solid rgba(0,0,0,0);
-    background-color: rgba(0,0,255,0.4);
+    background-color: #666;
     color: white;
 }

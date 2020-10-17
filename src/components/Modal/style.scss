@@ -1,5 +1,5 @@
 .modalLayout {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
     position: fixed;
     bottom: 0;
@@ -10,8 +10,8 @@
 }
 
 .modalContent {
-    color: white;
-    background:#69b2ea;
+    color: #333;
+    background:#fff;
     padding: 10px 20px;
     margin: 20vh auto;
     position: relative;
@@ -29,6 +29,7 @@
 }
 
 .modalButton {
+    color: #fff;
     background-color: #0f83dd;
     width: 50px;
     height: 50px;

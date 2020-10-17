@@ -160,8 +160,8 @@ const AllTicketsPage: React.FC = () => {
       {showModal && <ModalPortal onClose={() => {
         setShowModal(false)
         setSelectedTicket(null)
-      }}>
-        <div style={{ display: "flex" }}>
+      }} width="1200px">
+        <div style={{ display: "flex", alignItems: "stretch" }}>
           <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} onClose={() => {
             setShowModal(false)
             setSelectedTicket(null)
