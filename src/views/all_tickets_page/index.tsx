@@ -101,6 +101,8 @@ const AllTicketsPage: React.FC = () => {
             rows={8}
             removableSort
             rowHover
+            sortField="createdAt"
+            sortOrder={-1}
           >
             {data?.isAdmin ? (
               <Column
