@@ -1,0 +1,69 @@
+section {
+    width: 30vw;
+}
+form {
+    padding: 0.5em;
+    border-radius: 10px;
+    color: #333;
+    font-size: 1.5rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    input {
+        border: 2px solid rgba(255,255,255,0.4);
+        padding: 0.5em;
+        color: #333;
+        cursor: pointer;
+        font-weight: 200;
+        margin-bottom: 1em;
+        background-color: #fff;
+    }
+
+    input:focus, input:hover, textarea:focus, textarea:hover {
+        border: 2px solid #666;
+    }
+
+    input:disabled, textarea:disabled {
+        background-color: #fff;
+    }
+
+    textarea {
+        border: 2px solid rgba(255,255,255,0.4);
+        padding: 0.5em;
+        resize: none;
+        font-size: 1em;
+        color: #333;
+        cursor: pointer;
+        background-color: #fff;
+        margin-bottom: 1em;
+    }
+}
+
+.selectSection {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    font-weight: 800;
+    margin-bottom: 1em;
+}
+
+.errorParagraph {
+    color: rgba(255, 0, 0, 0.5);
+}
+
+button {
+    width: 200px;
+    background-color: #d6d6d6;
+    color: white;
+    padding: 0.25em;
+    border: 2px solid white;
+    align-self: center;
+}
+
+button:hover {
+    border: 2px solid rgba(0,0,0,0);
+    background-color: #666;
+    color: white;
+}

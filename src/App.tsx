@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-
+import { Route, BrowserRouter } from 'react-router-dom';
 import AllTicketsPage from './views/all_tickets_page';
 import Auth from './views/auth';
 
@@ -69,7 +68,7 @@ function App() {
       <UserContext.Provider value={user}>
         <ProtectedRoute
           path={ROUTES.home}
-          Component={AllTicketsPage}
+          component={AllTicketsPage}
           auth={isLogin}
           ready={user.ready}
         />

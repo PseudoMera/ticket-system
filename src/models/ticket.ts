@@ -9,3 +9,8 @@ export type Ticket = {
   userId: number;
   comments: Comment[];
 };
+
+export type DropDownItems = {
+  status: string;
+  value: string;
+}

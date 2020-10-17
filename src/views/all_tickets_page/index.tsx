@@ -6,6 +6,8 @@ import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 
 import Sidebar from '../../components/Sidebar/StyledSidebar';
+import TicketDescription from "../../components/ticketDescription"
+import TicketComment from "../../components/ticketComment"
 import UserContext from '../../context/userContext';
 
 import { API } from '../../constants/api';
@@ -13,9 +15,15 @@ import { Ticket } from '../../models/ticket';
 import { Token } from '../../models/token';
 import { getDateFromString } from '../../utils/index';
 
+
+import { MODAL_MODE } from "../../constants"
+import ModalPortal from "../../components/Modal"
+
 const AllTicketsPage: React.FC = () => {
   const { data } = useContext(UserContext);
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null)
 
   const getTickets = async () => {
     const token = localStorage.getItem('token');
@@ -40,13 +48,16 @@ const AllTicketsPage: React.FC = () => {
     getTickets();
   }, []);
 
-  const actionBodyTemplate = (rowData: { id: number }) => {
+  const actionBodyTemplate = (rowData: Ticket) => {
     return (
       <Button
         type="button"
         icon="pi pi-cog"
         className="p-button-secondary"
-        onClick={() => console.log(rowData.id)}
+        onClick={() => {
+          setSelectedTicket(rowData)
+          setShowModal(true)
+        }}
       ></Button>
     );
   };
@@ -90,7 +101,6 @@ const AllTicketsPage: React.FC = () => {
             rows={8}
             removableSort
             rowHover
-            onRowClick={(e) => console.log(e.data)}
           >
             {data?.isAdmin ? (
               <Column
@@ -144,9 +154,23 @@ const AllTicketsPage: React.FC = () => {
             />
           </DataTable>
         ) : (
-          <h1>Loading...</h1>
-        )}
+            <h1>Loading...</h1>
+          )}
       </div>
+      {showModal && <ModalPortal onClose={() => {
+        setShowModal(false)
+        setSelectedTicket(null)
+      }} width="1200px">
+        <div style={{ display: "flex", alignItems: "stretch" }}>
+          <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} onClose={() => {
+            setShowModal(false)
+            setSelectedTicket(null)
+            getTickets()
+          }} id={selectedTicket?.id} />
+          <TicketComment id={selectedTicket?.id} />
+        </div>
+      </ModalPortal>
+      }
     </div>
   );
 };

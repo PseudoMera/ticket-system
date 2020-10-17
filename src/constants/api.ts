@@ -7,4 +7,7 @@ export const API = {
   patchProfile: `${BASE_URL}/user/profile`,
   tickets: `${BASE_URL}/tickets`,
   getAllTickets: `${BASE_URL}/tickets/all`,
+  createTicket: `${BASE_URL}/tickets`,
+  createComment: `${BASE_URL}/tickets`,
+  updateTicket: `${BASE_URL}/tickets`
 };

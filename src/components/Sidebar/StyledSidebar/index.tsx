@@ -1,10 +1,13 @@
 import './style.scss';
 import React, { useState } from 'react';
-
+import TicketDescription from "../../ticketDescription"
+import { MODAL_MODE } from "../../../constants"
+import ModalPortal from "../../Modal"
 import CustomSidebar from '../index';
 
 export const StyledSidebar = (): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState<number>(0);
+  const [showModal, setShowModal] = useState<boolean>(false)
   const SidebarContent = (): JSX.Element => {
     return (
       <div>
@@ -22,7 +25,10 @@ export const StyledSidebar = (): JSX.Element => {
             className={
               selectedOption === 1 ? 'selected-list-item' : 'list-item'
             }
-            onClick={() => setSelectedOption(1)}
+            onClick={() => {
+              setSelectedOption(1)
+              setShowModal(true)
+            }}
           >
             <i className="pi pi-ticket icon-class"></i>Create ticket
           </li>
@@ -39,6 +45,15 @@ export const StyledSidebar = (): JSX.Element => {
             <i className="pi pi-sign-out icon-class"></i>Sign out
           </li>
         </ul>
+        {showModal && <ModalPortal onClose={() => {
+          setShowModal(false)
+        }} width="650px">
+          <div>
+            <TicketDescription mode={MODAL_MODE.CREATE} onClose={() => {
+              setShowModal(false)
+            }} />
+          </div>
+        </ModalPortal>}
       </div>
     );
   };
@@ -47,7 +62,7 @@ export const StyledSidebar = (): JSX.Element => {
       baseZIndex={1000000}
       className="sidebar"
       content={<SidebarContent />}
-      onHide={() => {}}
+      onHide={() => { }}
       position="left"
       showCloseIcon={false}
       visible={true}

@@ -1,0 +1,16 @@
+.contactMainContainer {
+    margin: 2em auto;
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    column-gap: 2em;
+    grid-template-areas: "form image";
+}
+
+.contactImage {
+    grid-area: image;
+    width: 500px;
+    height: 500px;
+}
