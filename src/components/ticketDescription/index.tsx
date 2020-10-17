@@ -98,7 +98,7 @@ const TicketDescription: React.FC<TicketDescriptionProps> = ({
     return initialValue;
   });
   return (
-    <section>
+    <section className="ticket-description">
       <Formik
         initialValues={{
           title: ticket?.title ? ticket.title : '',
