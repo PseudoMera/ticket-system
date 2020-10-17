@@ -1,9 +1,20 @@
-import React from "react"
-import "./style.scss"
+import React, { useEffect } from "react"
+import { RouteComponentProps, withRouter } from "react-router-dom"
 import TicketComment from "../../components/ticketComment"
 import TicketDescription from "../../components/ticketDescription"
+import "./style.scss"
 
-const Detail: React.FC = () => {
+type TicketDetailParams = {
+    id?: string;
+};
+
+type TicketDetailProps = RouteComponentProps<TicketDetailParams>;
+
+const Detail: React.FC<TicketDetailProps> = ({ match }: TicketDetailProps) => {
+    const { id } = match.params
+    useEffect(() => {
+        console.log('ID', id)
+    }, [])
     return (
         <div>
             <div className="detailContainer">
@@ -14,4 +25,4 @@ const Detail: React.FC = () => {
     )
 }
 
-export default Detail;
+export default withRouter(Detail);

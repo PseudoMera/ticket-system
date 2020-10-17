@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import Home from './views/home';
-<<<<<<< HEAD
 import Detail from './views/detail'
-import Contact from './views/contact'
-=======
 import Auth from './views/auth';
 
 import ROUTES from './constants/routes';
@@ -13,7 +10,6 @@ import UserContext, { UserContextType } from './context/userContext';
 import { API } from './constants/api';
 import { Token } from './models/token';
 import { User } from './models';
->>>>>>> master
 
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -60,28 +56,25 @@ function App() {
 
   const isLogin = user.data ? true : false;
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/detail" component={Detail} />
-        <Route exact path="/contact" component={Contact} />
-      </Switch>
-=======
   return (
     <BrowserRouter>
       <UserContext.Provider value={user}>
         <ProtectedRoute
           path={ROUTES.home}
-          Component={Home}
+          component={Home}
           auth={isLogin}
           ready={user.ready}
         />
+        {/* <ProtectedRoute
+          path={ROUTES.detail}
+          component={Detail}
+          auth={isLogin}
+          ready={user.ready}
+        /> */}
         <Route exact path={ROUTES.auth} component={Auth} />
+        <Route exact path={ROUTES.detail} component={Detail} />
+        <Route exact path={ROUTES.detailWithId} component={Detail} />
       </UserContext.Provider>
->>>>>>> master
     </BrowserRouter>
   );
 }

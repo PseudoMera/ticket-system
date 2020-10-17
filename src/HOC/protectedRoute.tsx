@@ -3,14 +3,14 @@ import { Route, Redirect } from 'react-router-dom';
 import ROUTES from '../constants/routes';
 
 type ProtectedRouteProps = {
-  Component: React.FC;
+  component: React.FC;
   path: string;
   auth: boolean;
   ready: boolean;
 };
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
-  Component,
+  component,
   path,
   auth,
   ready,
@@ -20,11 +20,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     <React.Fragment>
       {!ready ? null : auth ? (
         <>
-          <Route path={path} component={Component} exact />
+          <Route path={path} component={component} exact />
         </>
       ) : (
-        <Redirect to={ROUTES.auth} />
-      )}
+          <Redirect to={ROUTES.auth} />
+        )}
     </React.Fragment>
   );
 };
