@@ -15,7 +15,6 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   auth,
   ready,
 }: ProtectedRouteProps) => {
-
   return (
     <React.Fragment>
       {!ready ? null : auth ? (
@@ -23,7 +22,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
           <Route path={path} component={component} exact />
         </>
       ) : (
-          <Redirect to={ROUTES.auth} />
+          <Route component={() => <Redirect to={ROUTES.auth} />} />
         )}
     </React.Fragment>
   );

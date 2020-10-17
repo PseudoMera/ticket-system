@@ -5,4 +5,6 @@ export const API = {
   login: `${BASE_URL}/user/signin`,
   getProfile: `${BASE_URL}/user/profile`,
   patchProfile: `${BASE_URL}/user/profile`,
+  tickets: `${BASE_URL}/tickets`,
+  getAllTickets: `${BASE_URL}/tickets/all`,
 };

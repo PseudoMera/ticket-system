@@ -1,12 +1,15 @@
-export type Ticket = {
-    id: string;
-    title: string;
-    description: string;
-    createdAt: Date;
-    status: string;
-}
-
 export type DropDownItems = {
-    status: string;
-    value: string;
+  status: string;
+  value: string;
 }
+import { Comment } from './comment';
+
+export type Ticket = {
+  id: number;
+  title: string;
+  description: string;
+  status: string;
+  createdAt: string;
+  userId: number;
+  comments: Comment[];
+};

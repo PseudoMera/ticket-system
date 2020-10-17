@@ -3,6 +3,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 import Home from './views/home';
 import Detail from './views/detail'
+import AllTicketsPage from './views/all_tickets_page';
 import Auth from './views/auth';
 
 import ROUTES from './constants/routes';
@@ -30,11 +31,20 @@ function App() {
       });
 
       const parsedUser: User = await response.json();
-      setUser({
-        data: parsedUser,
-        update: updateUser,
-        ready: true,
-      });
+
+      if (parsedUser.id) {
+        setUser({
+          data: parsedUser,
+          update: updateUser,
+          ready: true,
+        });
+      } else {
+        setUser({
+          data: undefined,
+          update: updateUser,
+          ready: true,
+        });
+      }
     } else {
       setUser({
         data: undefined,
@@ -61,7 +71,7 @@ function App() {
       <UserContext.Provider value={user}>
         <ProtectedRoute
           path={ROUTES.home}
-          component={Home}
+          component={AllTicketsPage}
           auth={isLogin}
           ready={user.ready}
         />

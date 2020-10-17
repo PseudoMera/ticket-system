@@ -22,6 +22,7 @@ const SigninForm: React.FC<SigninFormProps> = ({
     email: '',
     password: '',
   });
+  const [isFormValid, setIsFormValid] = useState<boolean>(true);
 
   const handleSubmit = async (values: SigninFormType, actions: any) => {
     const email = values.email;
@@ -38,10 +39,15 @@ const SigninForm: React.FC<SigninFormProps> = ({
 
     const parsedSignin: Token = await signin.json();
 
-    localStorage.setItem('token', JSON.stringify(parsedSignin));
-    user.update();
-    //TODO: Push user to the homepage
-
+    if (parsedSignin.accessToken) {
+      setIsFormValid(true);
+      localStorage.setItem('token', JSON.stringify(parsedSignin));
+      user.update();
+      history.push(ROUTES.home);
+    } else {
+      setIsFormValid(false);
+      actions.resetForm();
+    }
   };
 
   return (
@@ -77,6 +83,10 @@ const SigninForm: React.FC<SigninFormProps> = ({
               label="Log in"
               className="p-button-raised p-button-success"
             />
+
+            {!isFormValid && (
+              <p className="p-invalid my-3">Your credentials are incorrect</p>
+            )}
             <Link to="#" onClick={() => setIsLogin(false)}>
               Don't have an account? Register here!
             </Link>
