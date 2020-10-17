@@ -6,8 +6,8 @@ import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 
 import Sidebar from '../../components/Sidebar/StyledSidebar';
-import TicketDescription from "../../components/ticketDescription"
-import TicketComment from "../../components/ticketComment"
+import TicketDescription from '../../components/ticketDescription';
+import TicketComment from '../../components/ticketComment';
 import UserContext from '../../context/userContext';
 
 import { API } from '../../constants/api';
@@ -15,15 +15,14 @@ import { Ticket } from '../../models/ticket';
 import { Token } from '../../models/token';
 import { getDateFromString } from '../../utils/index';
 
-
-import { MODAL_MODE } from "../../constants"
-import ModalPortal from "../../components/Modal"
+import { MODAL_MODE } from '../../constants';
+import ModalPortal from '../../components/Modal';
 
 const AllTicketsPage: React.FC = () => {
   const { data } = useContext(UserContext);
   const [tickets, setTickets] = useState<Ticket[] | null>(null);
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null)
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [selectedTicket, setSelectedTicket] = useState<Ticket | null>(null);
 
   const getTickets = async () => {
     const token = localStorage.getItem('token');
@@ -46,6 +45,7 @@ const AllTicketsPage: React.FC = () => {
 
   useEffect(() => {
     getTickets();
+    document.title = 'Ticket system';
   }, []);
 
   const actionBodyTemplate = (rowData: Ticket) => {
@@ -55,8 +55,8 @@ const AllTicketsPage: React.FC = () => {
         icon="pi pi-cog"
         className="p-button-secondary"
         onClick={() => {
-          setSelectedTicket(rowData)
-          setShowModal(true)
+          setSelectedTicket(rowData);
+          setShowModal(true);
         }}
       ></Button>
     );
@@ -154,23 +154,32 @@ const AllTicketsPage: React.FC = () => {
             />
           </DataTable>
         ) : (
-            <h1>Loading...</h1>
-          )}
+          <h1>Loading...</h1>
+        )}
       </div>
-      {showModal && <ModalPortal onClose={() => {
-        setShowModal(false)
-        setSelectedTicket(null)
-      }} width="1200px">
-        <div style={{ display: "flex", alignItems: "stretch" }}>
-          <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} onClose={() => {
-            setShowModal(false)
-            setSelectedTicket(null)
-            getTickets()
-          }} id={selectedTicket?.id} />
-          <TicketComment id={selectedTicket?.id} />
-        </div>
-      </ModalPortal>
-      }
+      {showModal && (
+        <ModalPortal
+          onClose={() => {
+            setShowModal(false);
+            setSelectedTicket(null);
+          }}
+          width="1200px"
+        >
+          <div style={{ display: 'flex', alignItems: 'stretch' }}>
+            <TicketDescription
+              mode={MODAL_MODE.DETAIL}
+              ticket={selectedTicket}
+              onClose={() => {
+                setShowModal(false);
+                setSelectedTicket(null);
+                getTickets();
+              }}
+              id={selectedTicket?.id}
+            />
+            <TicketComment id={selectedTicket?.id} />
+          </div>
+        </ModalPortal>
+      )}
     </div>
   );
 };
