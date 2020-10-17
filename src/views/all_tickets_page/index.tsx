@@ -55,10 +55,6 @@ const AllTicketsPage: React.FC = () => {
         icon="pi pi-cog"
         className="p-button-secondary"
         onClick={() => {
-          // console.log('Click en la manija')
-          // console.log(rowData.id)
-          // console.log('Data en la manija')
-          // console.log(rowData)
           setSelectedTicket(rowData)
           setShowModal(true)
         }}
@@ -105,10 +101,6 @@ const AllTicketsPage: React.FC = () => {
             rows={8}
             removableSort
             rowHover
-          // onRowClick={(e) => {
-          //   console.log('Click en la fila')
-          //   console.log(e.data)
-          // }}
           >
             {data?.isAdmin ? (
               <Column
@@ -173,7 +165,8 @@ const AllTicketsPage: React.FC = () => {
           <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} onClose={() => {
             setShowModal(false)
             setSelectedTicket(null)
-          }} />
+            getTickets()
+          }} id={selectedTicket?.id} />
           <TicketComment id={selectedTicket?.id} />
         </div>
       </ModalPortal>

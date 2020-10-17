@@ -45,9 +45,13 @@ export const StyledSidebar = (): JSX.Element => {
             <i className="pi pi-sign-out icon-class"></i>Sign out
           </li>
         </ul>
-        {showModal && <ModalPortal onClose={() => setShowModal(false)}>
+        {showModal && <ModalPortal onClose={() => {
+          setShowModal(false)
+        }}>
           <div>
-            <TicketDescription mode={MODAL_MODE.CREATE} onClose={() => setShowModal(false)} />
+            <TicketDescription mode={MODAL_MODE.CREATE} onClose={() => {
+              setShowModal(false)
+            }} />
           </div>
         </ModalPortal>}
       </div>
