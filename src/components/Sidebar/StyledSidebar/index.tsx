@@ -47,7 +47,7 @@ export const StyledSidebar = (): JSX.Element => {
         </ul>
         {showModal && <ModalPortal onClose={() => setShowModal(false)}>
           <div>
-            <TicketDescription mode={MODAL_MODE.CREATE} />
+            <TicketDescription mode={MODAL_MODE.CREATE} onClose={() => setShowModal(false)} />
           </div>
         </ModalPortal>}
       </div>

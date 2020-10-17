@@ -161,10 +161,16 @@ const AllTicketsPage: React.FC = () => {
             <h1>Loading...</h1>
           )}
       </div>
-      {showModal && <ModalPortal onClose={() => setShowModal(false)}>
+      {showModal && <ModalPortal onClose={() => {
+        setShowModal(false)
+        setSelectedTicket(null)
+      }}>
         <div style={{ display: "flex" }}>
-          <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} />
-          <TicketComment />
+          <TicketDescription mode={MODAL_MODE.DETAIL} ticket={selectedTicket} onClose={() => {
+            setShowModal(false)
+            setSelectedTicket(null)
+          }} />
+          <TicketComment id={selectedTicket?.id} comments={selectedTicket?.comments} />
         </div>
       </ModalPortal>
       }
